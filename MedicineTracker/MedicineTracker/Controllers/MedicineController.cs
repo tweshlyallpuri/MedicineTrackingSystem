@@ -23,9 +23,12 @@ namespace MedicineTracker.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string SearchString)
         {
-            return View(_context.Medicines);
+            var medicines = _context.Medicines;
+            if (!string.IsNullOrEmpty(SearchString))
+                medicines = medicines.Where(x => x.FullName.Contains(SearchString, StringComparison.OrdinalIgnoreCase)).ToList();
+            return View(medicines);
         }
 
         // GET: Medicine/Details/5

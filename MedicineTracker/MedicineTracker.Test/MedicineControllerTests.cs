@@ -31,7 +31,7 @@ namespace MedicineTracker.Test
             var controller = new MedicineController(null,context);
             int medicineCount = context.Medicines.Count();
             //Act
-            var result = controller.Index();
+            var result = controller.Index(null);
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<IEnumerable<Medicine>>(
