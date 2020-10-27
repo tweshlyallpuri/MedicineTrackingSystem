@@ -15,9 +15,9 @@ namespace MedicineTracker.Controllers
     public class MedicineController : Controller
     {
         private readonly ILogger<MedicineController> _logger;
-        private MedicineDbContext _context;
+        private IInMemoryMedicines _context;
 
-        public MedicineController(ILogger<MedicineController> logger, MedicineDbContext context)
+        public MedicineController(ILogger<MedicineController> logger, IInMemoryMedicines context)
         {
             _logger = logger;
             _context = context;
@@ -25,7 +25,7 @@ namespace MedicineTracker.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Medicines.ToListAsync());
+            return View(_context.Medicines);
         }
 
         // GET: Medicine/Details/5
@@ -36,8 +36,8 @@ namespace MedicineTracker.Controllers
                 return NotFound();
             }
 
-            var medicine = await _context.Medicines
-                .FirstOrDefaultAsync(m => m.FullName.Equals(id, StringComparison.OrdinalIgnoreCase));
+            var medicine = _context.Medicines
+                .FirstOrDefault(m => m.FullName.Equals(id, StringComparison.OrdinalIgnoreCase));
             if (medicine == null)
             {
                 return NotFound();
@@ -60,16 +60,15 @@ namespace MedicineTracker.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(medicine);
-                await _context.SaveChangesAsync();
+                _context.Medicines.Add(medicine);
                 return RedirectToAction(nameof(Index));
             }
             return View(medicine);
         }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        
+        public IActionResult Error(int id)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, ErrorCode = id });
         }
     }
 }

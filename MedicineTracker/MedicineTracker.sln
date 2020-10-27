@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicineTracker", "MedicineTracker\MedicineTracker.csproj", "{41A0C625-EDC6-4308-B5A0-BB8D715000D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicineTracker.Data", "MedicineTracker.Data\MedicineTracker.Data.csproj", "{D5EEC8BE-D37E-428B-A228-3371C8E41C6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicineTracker.Data", "MedicineTracker.Data\MedicineTracker.Data.csproj", "{D5EEC8BE-D37E-428B-A228-3371C8E41C6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicineTracker.Test", "MedicineTracker.Test\MedicineTracker.Test.csproj", "{C277FE74-7C84-438B-8310-660A657551D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D5EEC8BE-D37E-428B-A228-3371C8E41C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5EEC8BE-D37E-428B-A228-3371C8E41C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5EEC8BE-D37E-428B-A228-3371C8E41C6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C277FE74-7C84-438B-8310-660A657551D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C277FE74-7C84-438B-8310-660A657551D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C277FE74-7C84-438B-8310-660A657551D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C277FE74-7C84-438B-8310-660A657551D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
