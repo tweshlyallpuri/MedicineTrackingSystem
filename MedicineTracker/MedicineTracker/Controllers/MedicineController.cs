@@ -23,13 +23,13 @@ namespace MedicineTracker.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View(_context.Medicines);
         }
 
         // GET: Medicine/Details/5
-        public async Task<IActionResult> Details(string id)
+        public IActionResult Details(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
@@ -56,7 +56,7 @@ namespace MedicineTracker.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FullName,BrandName,Price,Quantity,ExpiryDate,Notes")] Medicine medicine)
+        public IActionResult Create([Bind("FullName,BrandName,Price,Quantity,ExpiryDate,Notes")] Medicine medicine)
         {
             if (ModelState.IsValid)
             {

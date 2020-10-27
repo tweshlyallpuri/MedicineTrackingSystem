@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MedicineTracker.Test": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
